@@ -19,23 +19,23 @@ To include this project you need to require the module by using CommonJS syntax 
 
 ```js
 // ES6
-import NPupBar, { addMessage } from 'npup'
-/* NPupBar is the default export.
+import NPupBars, { addMessage } from 'npup'
+/* NPupBars is the default export.
    It represents the React Component that contains the NPupComponents.
 
    You can give the default export any name
-   but in this example it will be referenced as NPupBar */
+   but in this example it will be referenced as NPupBars */
 
 ```
 
-For best results, render the `NPupBar` component in the higher DOM node possible, such as:
+For best results, render the `NPupBars` component in the higher DOM node possible, such as:
 
 ```js
 // react's app render function
 render() {
 	return (
 		<div className='main'>
-			<NPupBar />
+			<NPupBars />
 			...
 		</div>
 	)
@@ -43,11 +43,19 @@ render() {
 
 ```
 
-Then just call NPupBar with `addMessage(message)`
+Then just call NPupBars with `addMessage(message)`
 
 ```js
 
 addMessage('Info');
+
+```
+
+You can call NPupBars with `clearMessages()` to clear all messages.
+
+```js
+
+clearMessages();
 
 ```
 
@@ -83,7 +91,7 @@ You can also pass `-1` to cause the notification to display persistently.
 
 ```js
 let myColorStyle = { background: '#0E1717', text: "#FFFFFF" };
-addMessage("sample information", "custom", 4000, myColorStyle);
+addMessage("sample information", "", null, "custom", 4000, myColorStyle);
 ```
 
 ## Settings

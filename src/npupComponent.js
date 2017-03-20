@@ -98,12 +98,12 @@ export class NPupComponent extends React.Component {
 		this.isUpdate = true;
 		this.setState({contentContainerStyle: this.getStyles().contentContainerStyle});
 	}
-	
+
 	componentDidMount() {
 		this.getBaseStyle();
 		this.getVisibleState(this);
 	}
-	
+
 	shouldComponentUpdate() {
 		if (this.isUpdate) {
 			this.isUpdate = false;

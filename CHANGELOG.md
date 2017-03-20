@@ -7,4 +7,8 @@ This project adheres to [Nusret Parlak](https://github.com/nusretparlak/).
 
 ### Changed
 
+- function of clearMessages() is added.
+
 ### Fixed
+
+- webpack problem is fixed. 

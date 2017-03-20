@@ -15,6 +15,11 @@ export class NPupBar extends React.Component {
 		this.setState({messages: Object.assign({}, NPupDefaults.messages)});
 	}
 
+	clearMessages() {
+		NPupDefaults.clearMessages();
+		this.setState({messages: Object.assign({}, NPupDefaults.messages)});
+	}
+
 	render() {
 		let componentArray;
 		if (NPupDefaults.messages) {

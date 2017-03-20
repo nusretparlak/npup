@@ -10,8 +10,13 @@ export function addMessage(text, closeText = '', closeCallback = null, type = ''
 	NPupDefaults._NPupBar.refNPupBar.addMessage({messageId: newMessageId, text, closeText, closeCallback, type, timeout, color});
 }
 
+/* Export function */
+export function clearMessages() {
+	NPupDefaults._NPupBar.refNPupBar.clearMessages();
+}
+
 /* Export container */
-export default class extends React.Component {
+export default class NPupBars extends React.Component {
 	shouldComponentUpdate() {
 		return false;
 	}
