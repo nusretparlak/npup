@@ -868,6 +868,11 @@ var NPupDefaults = exports.NPupDefaults = function () {
 				this._NPupBar.refNPupBar.setState({ messages: Object.assign({}, this.messages) });
 			}
 		}
+	}, {
+		key: 'reRenderNPupBar',
+		value: function reRenderNPupBar() {
+			this._NPupBar.refNPupBar.setState({ messages: Object.assign({}, this.messages) });
+		}
 	}]);
 
 	return NPupDefaults;
@@ -1124,6 +1129,7 @@ NPupStyles.contentContainerStyle = {
 	display: 'table',
 	minWidth: '320px',
 	maxWidth: '512px',
+	maxHeight: '200px',
 	borderRadius: '3px',
 	backgroundColor: NPupStyles.backgroundColor.default,
 	color: NPupStyles.textColor.default,
@@ -1137,7 +1143,7 @@ NPupStyles.contentContainerStyle = {
 	OTransition: 'all ' + _defaults.NPupDefaults.firstAnimationDuration + 'ms ease',
 	MozTransition: 'all ' + _defaults.NPupDefaults.firstAnimationDuration + 'ms ease',
 	animationName: _defaults.NPupDefaults.firstAnimationName,
-	animationTimingFunction: 'ease-in-out',
+	animationTimingFunction: 'ease',
 	animationDuration: _defaults.NPupDefaults.firstAnimationDuration + 'ms',
 	animationDelay: '0.0s',
 	animationIterationCount: 1,
@@ -2258,11 +2264,11 @@ var NPupAnimations = exports.NPupAnimations = function () {
 				styleSheet[1].insertRule(keyframes, styleSheet[1].cssRules.length);
 			}
 			if (styleSheet[2]) {
-				keyframes = '@keyframes ' + _defaults.NPupDefaults.firstAnimationName + ' {\n\t\t\t\t0% { opacity:0; max-height: 0%; }\n\t\t\t\t100% { opacity:1; max-height: 100%; }\n\t\t\t}';
+				keyframes = '@keyframes ' + _defaults.NPupDefaults.firstAnimationName + ' {\n\t\t\t\t0% { opacity:0; max-height: 0px; }\n\t\t\t\t100% { opacity:1; max-height: 200px; }\n\t\t\t}';
 				styleSheet[2].insertRule(keyframes, styleSheet[2].cssRules.length);
 			}
 			if (styleSheet[3]) {
-				keyframes = '@-webkit-keyframes ' + _defaults.NPupDefaults.firstAnimationName + ' {\n\t\t\t\t0% { opacity:0; max-height: 0%; }\n\t\t\t\t100% { opacity:1; max-height: 100%; }\n\t\t\t}';
+				keyframes = '@-webkit-keyframes ' + _defaults.NPupDefaults.firstAnimationName + ' {\n\t\t\t\t0% { opacity:0; max-height: 0px; }\n\t\t\t\t100% { opacity:1; max-height: 200px; }\n\t\t\t}';
 				styleSheet[3].insertRule(keyframes, styleSheet[3].cssRules.length);
 			}
 			// if (styleSheet[1]) {
@@ -4900,6 +4906,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 exports.addMessage = addMessage;
 exports.clearMessages = clearMessages;
+exports.changeContainerStyle = changeContainerStyle;
+exports.changeContentContainerStyle = changeContentContainerStyle;
+exports.reRender = reRender;
 
 var _react = __webpack_require__(9);
 
@@ -4921,7 +4930,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/* Export function */
+/* Export addMessage function */
 function addMessage(text) {
 	var closeText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 	var closeCallback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
@@ -4933,7 +4942,7 @@ function addMessage(text) {
 	_defaults.NPupDefaults._NPupBar.refNPupBar.addMessage({ messageId: newMessageId, text: text, closeText: closeText, closeCallback: closeCallback, type: type, timeout: timeout, color: color });
 }
 
-/* Export function */
+/* Export clearMessages function */
 function clearMessages() {
 	_defaults.NPupDefaults._NPupBar.refNPupBar.clearMessages();
 }
@@ -4972,7 +4981,21 @@ var NPupBars = function (_React$Component) {
 	return NPupBars;
 }(_react2.default.Component);
 
+/* Export ChangeStyles function */
+
+
 exports.default = NPupBars;
+function changeContainerStyle(newStyle) {
+	_styles.NPupStyles.changeContainerStyle(newStyle);
+}
+
+function changeContentContainerStyle(newStyle) {
+	_styles.NPupStyles.changeContentContainerStyle(newStyle);
+}
+
+function reRender() {
+	_defaults.NPupDefaults.reRenderNPupBar();
+}
 
 /***/ })
 /******/ ]);

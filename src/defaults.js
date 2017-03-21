@@ -61,4 +61,7 @@ export class NPupDefaults {
 			this._NPupBar.refNPupBar.setState({messages: Object.assign({}, this.messages)});
 		}
 	}
+	static reRenderNPupBar() {
+		this._NPupBar.refNPupBar.setState({messages: Object.assign({}, this.messages)});
+	}
 }

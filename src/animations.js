@@ -24,16 +24,16 @@ export class NPupAnimations {
 		if (styleSheet[2]) {
 			keyframes =
 			`@keyframes ${NPupDefaults.firstAnimationName} {
-				0% { opacity:0; max-height: 0%; }
-				100% { opacity:1; max-height: 100%; }
+				0% { opacity:0; max-height: 0px; }
+				100% { opacity:1; max-height: 200px; }
 			}`;
 			styleSheet[2].insertRule(keyframes, styleSheet[2].cssRules.length);
 		}
 		if (styleSheet[3]) {
 			keyframes =
 			`@-webkit-keyframes ${NPupDefaults.firstAnimationName} {
-				0% { opacity:0; max-height: 0%; }
-				100% { opacity:1; max-height: 100%; }
+				0% { opacity:0; max-height: 0px; }
+				100% { opacity:1; max-height: 200px; }
 			}`;
 			styleSheet[3].insertRule(keyframes, styleSheet[3].cssRules.length);
 		}

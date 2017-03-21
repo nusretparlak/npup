@@ -4,13 +4,13 @@ import {NPupStyles} from './styles';
 import {NPupDefaults} from './defaults';
 import {NPupAnimations} from './animations';
 
-/* Export function */
+/* Export addMessage function */
 export function addMessage(text, closeText = '', closeCallback = null, type = '', timeout = NPupDefaults.defaultTimeout, color = NPupStyles.textColor.default) {
 	let newMessageId = NPupDefaults.getNewElementId();
 	NPupDefaults._NPupBar.refNPupBar.addMessage({messageId: newMessageId, text, closeText, closeCallback, type, timeout, color});
 }
 
-/* Export function */
+/* Export clearMessages function */
 export function clearMessages() {
 	NPupDefaults._NPupBar.refNPupBar.clearMessages();
 }
@@ -30,4 +30,17 @@ export default class NPupBars extends React.Component {
 			<NPupBar key={NPupDefaults.npupUniqueId} id={NPupDefaults.npupUniqueId} ref={(r) => this.refNPupBar = r} />
 		);
 	}
+}
+
+/* Export ChangeStyles function */
+export function changeContainerStyle(newStyle) {
+	NPupStyles.changeContainerStyle(newStyle);
+}
+
+export function changeContentContainerStyle(newStyle) {
+	NPupStyles.changeContentContainerStyle(newStyle);
+}
+
+export function reRender() {
+	NPupDefaults.reRenderNPupBar();
 }
